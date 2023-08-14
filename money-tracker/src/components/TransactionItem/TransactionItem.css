@@ -1,0 +1,81 @@
+.transaction:first-child {
+    border-top: 0;
+}
+
+.transaction {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    padding: 5px;
+    border-top: 1px solid var(--border-default);
+    transition: background-color .2s ease, border-radius .2s ease;
+    animation: slide-up .5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.transaction .name {
+    font-size: 1.2rem;
+}
+
+.transaction .desc {
+    font-size: 0.8rem;
+    color: var(--border-hover);
+}
+
+.datetime {
+    color: var(--border-hover);
+}
+
+.remove-btn {
+    position: absolute;
+    top: 0px;
+    left: 6px;
+    opacity: 0;
+    transition: opacity .3s ease;
+    cursor: pointer;
+    color: var(--border-hover);
+}
+
+.transaction:hover {
+    background-color: var(--item-hover);
+    border-radius: 5px;
+}
+
+.transaction:hover .remove-btn {
+    opacity: 1;
+}
+
+.remove-btn:hover {
+    color: #fff;
+}
+
+.right {
+    text-align: right;
+    padding: 15px 15px 15px 0px;
+}
+
+.left {
+    text-align: left;
+    padding: 15px 0 15px 15px;
+    width: 50%;
+}
+
+.red {
+    color: var(--danger);
+}
+
+.green {
+    color: var(--success);
+}
