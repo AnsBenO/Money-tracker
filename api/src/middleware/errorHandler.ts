@@ -6,7 +6,6 @@ const errorHandler = (
 	res: Response,
 	_next: NextFunction
 ) => {
-	console.log("errorHandler: working!!");
 	const statusCode = res.statusCode ? res.statusCode : 500;
 	switch (statusCode) {
 		case 400:
@@ -37,6 +36,12 @@ const errorHandler = (
 				stackTrace: err.stack,
 			});
 			break;
+		case 500:
+			res.json({
+				title: "Internal Server Error",
+				message: err.message,
+				stackTrace: err.stack,
+			});
 		default:
 			console.log("No ERRORS, All good!!");
 			break;
